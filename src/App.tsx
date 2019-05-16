@@ -4,29 +4,50 @@ import './App.css';
 import { InputForm } from "./components/Input.form";
 import { ReportsData } from "./components/Reports.data";
 import { ReloadButton } from "./components/Reload.btn";
+import { GET_REPORTS_METADATA } from './data/constants';
+import { IReportData } from "./data/models";
 
-class App extends React.Component<{}, {}> {
+const data = require("./data/reports.json");
 
-    public componentDidMount() {
-      console.log("===>load reports");
-      // TODO: get request for reports
+interface IAppState {
+  reports: IReportData[];
+}
 
-      // fetch('https://jsonplaceholder.typicode.com/todos/1')
-      //         .then(response => response.json())
-      //         .then(json => console.log(json))
+class App extends React.Component<{}, IAppState> {
+
+  public constructor(props: any) {
+    super(props);
+
+    this.state = {
+      reports: data
     }
 
-    public render() {
-        return (
-            <div className="App">
+  }
 
-                <InputForm />
-                <ReloadButton />
-                <ReportsData />
+  public componentDidMount() {
+    console.log("===>load reports");
+    // TODO: get request for reports
 
-            </div>
-        );
-    }
+    fetch(GET_REPORTS_METADATA)
+      .then(response => response.json())
+      .then(json => {
+        
+        console.log(json);
+      
+      });
+  }
+
+  public render() {
+    return (
+      <div className="App">
+
+        <InputForm />
+        <ReloadButton />
+        <ReportsData reports={this.state.reports} />
+
+      </div>
+    );
+  }
 }
 
 export default App;

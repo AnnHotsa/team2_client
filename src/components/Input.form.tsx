@@ -103,12 +103,9 @@ export class InputForm extends React.Component<IInputFormProps, IInputFormState>
 
     private onSubmit(e: React.FormEvent) {
         e.preventDefault(); // prevent page reload on form submission
-        console.log(`Generete report from ${new Date(this.state.dateFrom).getTime()} to ${new Date(this.state.dateTo).getTime()}`);
         console.log(`Generete report from ${this.state.dateFrom} to ${this.state.dateTo}`);
 
         // TODO: ajax post request with dateFrom and dateTo
-
-
         // EXAMPLE OF POST REQUEST
         fetch(POST_INPUT_ENDPOINT, {
             method: 'POST',
@@ -123,19 +120,14 @@ export class InputForm extends React.Component<IInputFormProps, IInputFormState>
         })
             .then(res => {
                 console.log("POST INPUT DATES SUCCESSFUL");
-                console.log(res);
+                if (res) {
+                    console.log(res.json().then(m => console.log("message==>", m)));
+                }
             })
             .catch(e => {
                 console.log("ERROR ON POST INPUT DATES");
                 console.log(e);
             });
-
-
-        // EXAMPLE OF GET REQUEST
-        // fetch('https://jsonplaceholder.typicode.com/todos/1')
-        //     .then(response => response.json())
-        //     .then(json => console.log(json))
-
     }
 }
 

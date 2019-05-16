@@ -1,19 +1,12 @@
 import React from "react";
-const data = require("../data/reports.json");
+import { IReportData } from "../data/models";
 
-
-interface IReportData {
-    id: string;
-    dateFrom: string;
-    dateTo: string;
-    creationDate: string;
-}
 
 interface IReportsDataState {
-    reports: IReportData[];
 }
 
 interface IReportsDataProps {
+    reports: IReportData[];
 
 }
 
@@ -21,10 +14,6 @@ export class ReportsData extends React.Component<IReportsDataProps, IReportsData
 
     public constructor(props: IReportsDataProps) {
         super(props);
-
-        this.state = {
-            reports: data
-        }
 
         this._renderReportsData = this._renderReportsData.bind(this);
     }
@@ -48,7 +37,7 @@ export class ReportsData extends React.Component<IReportsDataProps, IReportsData
     }
 
     private _renderReportsData() {
-        return this.state.reports.map(r => {
+        return this.props.reports.map(r => {
             return <ReportData key={r.id} {...r} />
         });
     }
