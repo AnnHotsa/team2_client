@@ -1,0 +1,64 @@
+.App {
+  padding: 100px 180px;
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  position: relative;
+}
+
+.input-container {
+  width: 100%;
+}
+
+.input-form {
+  width: 20%;
+  margin-top: 30px;
+}
+
+.btn.reload {
+  position: absolute;
+  top: 345px;
+  left: 300px;
+  border-radius: 50px;
+}
+
+.reports-container {
+  margin-top: 50px;
+}
+
+.reports-title, .report-row {
+  display: flex;
+  justify-content: space-between;
+  width: 1000px;
+
+  height: 40px;
+  background: #bbe9ff;
+  padding: 7px 5px;
+  border-radius: 2px;
+}
+
+.report-row {
+  background: #f8f8f8;
+}
+
+.report-row:hover {
+    background: #e9e9e9;
+  
+}
+
+.report-label {
+  width: 20%;
+}
+
+.reports-table {
+  margin: 40px 0;
+}
+
+.report-row .report-export {
+    padding: 0 15px;
+    font-size: 14px;
+}
+
+.report-export {
+  margin-right: 5px;
+}
