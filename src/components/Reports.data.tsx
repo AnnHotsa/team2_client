@@ -77,8 +77,8 @@ const ReportData = (props: IReportData) => {
 
             <label className="report-label">
 
-                <a className="btn btn-secondary report-export" href={GET_REPORTS_DOWNLOAD} download>JSON</a>
-                <button className="btn btn-secondary report-export" onClick={onXMLClick}>XML</button>
+                <a className="btn btn-secondary report-export" href={GET_REPORTS_DOWNLOAD + '/?type=json' + '&id=' + props.id} target="_blank">JSON</a>
+                <a className="btn btn-secondary report-export" href={GET_REPORTS_DOWNLOAD + '/?type=xml' + '&id=' + props.id} target="_blank">XML</a>
 
             </label>
         </div>
