@@ -16,7 +16,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "archive": "npm run build && cd ./build ; zip -r archive.zip . * ; cd .. ; mv ./build/archive.zip ./"
   },
   "eslintConfig": {
     "extends": "react-app"
