@@ -7,8 +7,6 @@ import { ReloadButton } from "./components/Reload.btn";
 import { GET_REPORTS_METADATA } from './data/constants';
 import { IReportData } from "./data/models";
 
-const data = require("./data/reports.json");
-
 interface IAppState {
   reports: IReportData[];
 }
@@ -19,7 +17,7 @@ class App extends React.Component<{}, IAppState> {
     super(props);
 
     this.state = {
-      reports: data
+      reports: []
     }
 
   }
