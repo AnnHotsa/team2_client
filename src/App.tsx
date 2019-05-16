@@ -31,9 +31,11 @@ class App extends React.Component<{}, IAppState> {
     fetch(GET_REPORTS_METADATA)
       .then(response => response.json())
       .then(json => {
-        
-        console.log(json);
-      
+        console.log(JSON.parse(json));
+
+        this.setState({
+          reports: JSON.parse(json),
+        })
       });
   }
 
