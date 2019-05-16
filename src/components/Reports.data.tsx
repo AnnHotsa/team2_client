@@ -1,5 +1,6 @@
 import React from "react";
 import { IReportData } from "../data/models";
+import { GET_REPORTS_DOWNLOAD } from "../data/constants"
 
 
 interface IReportsDataState {
@@ -76,7 +77,7 @@ const ReportData = (props: IReportData) => {
 
             <label className="report-label">
 
-                <button className="btn btn-secondary report-export" onClick={onJSONClick}>JSON</button>
+                <a className="btn btn-secondary report-export" href={GET_REPORTS_DOWNLOAD} download>JSON</a>
                 <button className="btn btn-secondary report-export" onClick={onXMLClick}>XML</button>
 
             </label>
